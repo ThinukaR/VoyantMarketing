@@ -18,16 +18,20 @@ const Hero = () => {
 
   return (
     <>
-    <div className="fixed left-9 w-[95%] h-5 rounded-full bg-gray-200 z-50">
-  <div
-    className="h-full bg-purple-500 transition-all duration-150 rounded-full"
-    style={{ width: `${Math.min(Math.max(scrollProgress, 0), 100)}%` }}
-  ></div>
-</div>
+      <div className="fixed left-0 w-full h-5 bg-gray-200 z-50">
+        <div
+          className="h-full bg-purple-500 transition-all duration-150"
+          style={{ width: `${Math.min(Math.max(scrollProgress, 0), 100)}%` }}
+        ></div>
+      </div>
+
+      {/* XP Indicator */}
+      <div className="fixed top-6 right-5 z-50 bg-purple-600 text-white px-4 py-2 rounded-full shadow-lg font-semibold tracking-wider">
+        XP: {Math.floor(scrollProgress)} / 100
+      </div>
 
       {/* Hero Content */}
       <main className="flex flex-col items-start justify-start min-h-[calc(90vh-6rem)] px-[5%] lg:mt-20 space-y-20">
-         
         {/* Welcome Section */}
         <section className="max-w-xl w-full z-10 mt-10 lg:mt-0">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-wider my-8">
@@ -48,14 +52,15 @@ const Hero = () => {
 
         {/* Story & Solution Section */}
         <section className="flex flex-col w-full space-y-10">
-
           {/* Our Story */}
           <div className="max-w-xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-wider my-8">
               Our Story
             </h1>
             <p className="text-base sm:text-2xl tracking-wider text-gray-400 max-w-[25rem] lg:max-w-[30rem]">
-              We noticed the lack of engagement and interactivity when it comes to tourism, thereby discouraging people from getting into such a beautiful hobby
+              We noticed the lack of engagement and interactivity when it comes
+              to tourism, thereby discouraging people from getting into such a
+              beautiful hobby
             </p>
           </div>
 
@@ -68,9 +73,7 @@ const Hero = () => {
               An app that makes this beautiful hobby interactive and engaging
             </p>
           </div>
-
         </section>
-
       </main>
     </>
   );
