@@ -1,4 +1,3 @@
-import Header from "./components/Header"
 import Hero from "./components/Hero"
 
 function App() {
@@ -6,11 +5,10 @@ function App() {
     <main className="relative">
       {/* Background image */}
       <div
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-repeat"
         style={{ backgroundImage: "url('/background.jpg')" }}
       />
 
-      <Header />
       <Hero />
     </main>
   )

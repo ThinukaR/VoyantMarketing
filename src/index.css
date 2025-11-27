@@ -5,3 +5,12 @@
         @apply bg-purple-700 text-white relative font-sans h-screen overflow-x-hidden
     }
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
