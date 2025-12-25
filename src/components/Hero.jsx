@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "boxicons/css/boxicons.min.css";
 
 const Hero = () => {
@@ -14,11 +14,30 @@ const Hero = () => {
     "bg-pink-500",
   ];
 
+  const teamMembers = [
+    { name: "Thinuka Rambukwella", image: "/team/thinuka.jpeg" },
+    { name: "Senal Perera", image: "/team/senal.jpeg" },
+    { name: "Hiffan Abdul Gaffoor", image: "/team/hiffan.jpeg" },
+    { name: "Yasara Perera", image: "/team/yasara.jpeg" },
+    { name: "Harshavardhan Ravichandran", image: "#" },
+    { name: "Adam Farook", image: "/team/selene.jpeg" },
+  ];
+
+  const prevScrollLeftRef = useRef(0);
+
   useEffect(() => {
     const container = document.getElementById("horizontal-scroll");
+    if (!container) return;
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
+      const prevScrollLeft = prevScrollLeftRef.current;
+
+      if (scrollLeft <= prevScrollLeft) {
+        prevScrollLeftRef.current = scrollLeft;
+        return;
+      }
+
       const maxScroll = container.scrollWidth - container.clientWidth;
       const progress = (scrollLeft / maxScroll) * 100;
 
@@ -34,6 +53,9 @@ const Hero = () => {
       setLevel(newLevel);
       setXp(newXP);
       setScrollProgress(progress);
+
+      // Update previous scroll position
+      prevScrollLeftRef.current = scrollLeft;
     };
 
     container.addEventListener("scroll", handleScroll);
@@ -116,9 +138,9 @@ const Hero = () => {
               <div className="py-3 relative">
                 <button
                   onClick={scrollToNextSection}
-                  className="relative z-10 bg-purple-500 rounded-full p-3 text-2xl tracking-wider cursor-pointer transition-all duration-500 hover:bg-purple-600"
+                  className="relative z-10 bg-purple-500 rounded-full p-4 text-2xl tracking-wider cursor-pointer transition-all duration-500 hover:bg-purple-600"
                 >
-                  Click Here!
+                  Learn More..
                   <span className="absolute inset-0 rounded-full bg-purple-500 opacity-50 blur-xl animate-ping"></span>
                 </button>
               </div>
@@ -166,19 +188,21 @@ const Hero = () => {
 
             {/* Cards Container */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center">
-              {[...Array(6)].map((_, idx) => (
+              {teamMembers.map((member, idx) => (
                 <div
                   key={idx}
                   className="flex flex-col items-center bg-purple-500 rounded-2xl shadow-lg p-4 w-40"
                 >
-                  {/* Image Placeholder */}
-                  <div className="w-32 h-32 bg-gray-300 rounded-full mb-4 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Image</span>
-                  </div>
+                  {/* Image */}
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-32 h-32 rounded-full object-cover mb-4"
+                  />
 
-                  {/* Name Placeholder */}
-                  <p className="text-center text-gray-700 font-medium">
-                    Name {idx + 1}
+                  {/* Name */}
+                  <p className="text-center text-white font-medium">
+                    {member.name}
                   </p>
                 </div>
               ))}
