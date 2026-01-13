@@ -19,7 +19,7 @@ const Hero = () => {
     { name: "Senal Perera", image: "/team/senal.jpeg" },
     { name: "Hiffan Abdul Gaffoor", image: "/team/hiffan.jpeg" },
     { name: "Yasara Perera", image: "/team/yasara.jpeg" },
-    { name: "Harshavardhan Ravichandran", image: "#" },
+    { name: "Harshavardhan Ravichandran", image: "/team/harsh.jpeg" },
     { name: "Adam Farook", image: "/team/selene.jpeg" },
   ];
 
@@ -82,7 +82,7 @@ const Hero = () => {
     <>
       <div className="fixed top-0 left-0 w-full z-50">
         <header className="w-full bg-purple-900 flex justify-center items-center py-4 px-4 lg:px-20">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-white">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl text-white">
             Voyant
           </h1>
         </header>
@@ -156,7 +156,7 @@ const Hero = () => {
             </div>
           </section>
           {/* Story */}
-          <section className="flex-shrink-0 w-screen h-full flex flex-col justify-center px-[5%] snap-start space-y-20">
+          <section className="flex-shrink-0 w-screen h-full flex flex-col justify-center px-[5%] snap-start">
             {/* Our Story (Left) */}
             <div className="self-start text-left max-w-[30rem]">
               <h1 className="text-6xl font-semibold tracking-wider my-8">
@@ -177,6 +177,15 @@ const Hero = () => {
               <p className="text-2xl text-gray-400">
                 An app that makes this beautiful hobby engaging
               </p>
+              <div className="py-3 relative">
+                <button
+                  onClick={scrollToNextSection}
+                  className="relative z-10 bg-purple-500 rounded-full p-4 text-2xl tracking-wider cursor-pointer transition-all duration-500 hover:bg-purple-600"
+                >
+                  Learn More..
+                  <span className="absolute inset-0 rounded-full bg-purple-500 opacity-50 blur-xl animate-ping"></span>
+                </button>
+              </div>
             </div>
           </section>
 
