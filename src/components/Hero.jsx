@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import confetti from "canvas-confetti";
 import "boxicons/css/boxicons.min.css";
 
 const Hero = () => {
@@ -13,6 +14,16 @@ const Hero = () => {
     "bg-blue-600",
     "bg-pink-500",
   ];
+
+  const fireConfetti = () => {
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  };
+
+  const confettiFiredRef = useRef(false);
 
   const teamMembers = [
     { name: "Thinuka Rambukwella", image: "/team/thinuka.jpeg" },
@@ -48,6 +59,11 @@ const Hero = () => {
       while (newXP >= 100) {
         newXP -= 100;
         newLevel += 1;
+      }
+
+      if (progress >= 99 && !confettiFiredRef.current) {
+        fireConfetti();
+        confettiFiredRef.current = true;
       }
 
       setLevel(newLevel);
@@ -216,6 +232,28 @@ const Hero = () => {
                 </div>
               ))}
             </div>
+          </section>
+          <section className="flex-shrink-0 w-screen h-full flex flex-col justify-center items-center px-[5%] snap-start">
+            <h1 className="text-5xl md:text-6xl font-bold text-purple-600 mb-6">
+              🎉 Congratulations!
+            </h1>
+
+            <p className="text-2xl md:text-3xl text-gray-400 text-center max-w-xl">
+              You’ve leveled up and completed the journey.
+            </p>
+
+            <div className="mt-10">
+              <span className="text-xl font-semibold text-gray-600">
+                Final Level Achieved: {level}
+              </span>
+            </div>
+
+            <button
+              onClick={fireConfetti}
+              className="mt-10 bg-purple-500 hover:bg-purple-600 text-white px-8 py-4 rounded-full text-xl transition-all duration-300 shadow-lg"
+            >
+              Celebrate Again 🎊
+            </button>
           </section>
         </main>
       </div>
