@@ -231,6 +231,15 @@ const Hero = () => {
                   </p>
                 </div>
               ))}
+              <div className="py-3 relative">
+                <button
+                  onClick={scrollToNextSection}
+                  className="relative z-10 bg-purple-500 rounded-full p-4 text-2xl tracking-wider cursor-pointer transition-all duration-500 hover:bg-purple-600"
+                >
+                  Learn More..
+                  <span className="absolute inset-0 rounded-full bg-purple-500 opacity-50 blur-xl animate-ping"></span>
+                </button>
+              </div>
             </div>
           </section>
           <section className="flex-shrink-0 w-screen h-full flex flex-col justify-center items-center px-[5%] snap-start">
