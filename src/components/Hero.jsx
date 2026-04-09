@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import confetti from "canvas-confetti";
+import Features from "./Features";
 import "boxicons/css/boxicons.min.css";
 
 const Hero = () => {
@@ -94,13 +95,35 @@ const Hero = () => {
     });
   };
 
+  const scrollToPreviousSection = () => {
+    const container = document.getElementById("horizontal-scroll");
+    if (!container) return;
+
+    // Width of one section
+    const sectionWidth = container.clientWidth;
+
+    // Scroll back by one section width
+    container.scrollBy({
+      left: -sectionWidth,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <div className="fixed top-0 left-0 w-full z-50">
-        <header className="w-full bg-purple-900 flex justify-center items-center py-4 px-4 lg:px-20">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl text-white">
+        <header className="w-full bg-purple-900 flex justify-between items-center py-4 px-4 lg:px-20">
+          <button
+            onClick={scrollToPreviousSection}
+            className="text-white hover:text-purple-300 transition-colors text-3xl font-bold hover:scale-110 transform duration-200"
+            title="Go Back"
+          >
+            ←
+          </button>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl text-white flex-1 text-center">
             Voyant
           </h1>
+          <div className="w-12"></div>
         </header>
 
         <div className="w-full h-6 bg-gray-200 relative">
@@ -242,6 +265,10 @@ const Hero = () => {
               </div>
             </div>
           </section>
+
+          {/* Features Section */}
+          <Features onScrollNext={scrollToNextSection} />
+
           <section className="flex-shrink-0 w-screen h-full flex flex-col justify-center items-center px-[5%] snap-start">
             <h1 className="text-5xl md:text-6xl font-bold text-purple-600 mb-6">
               🎉 Congratulations!
