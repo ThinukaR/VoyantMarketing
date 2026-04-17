@@ -1,0 +1,295 @@
+/* Theme Colors - Material 3 Mystical Modernism */
+:root {
+  /* Primary */
+  --primary: #7b1fa2;
+  --primary-dim: #9c27b0;
+  --primary-container: #9c27b0;
+  --on-primary: #ffffff;
+  --primary-fixed: #e1bee7;
+  --primary-fixed-dim: #ce93d8;
+  --on-primary-fixed: #ffffff;
+  --on-primary-fixed-variant: #4a148c;
+  --on-primary-container: #f3e5f5;
+
+  /* Secondary */
+  --secondary: #9c27b0;
+  --secondary-dim: #7b1fa2;
+  --secondary-container: #4a148c;
+  --on-secondary: #ffffff;
+  --secondary-fixed: #e1bee7;
+  --secondary-fixed-dim: #ce93d8;
+  --on-secondary-fixed: #21005d;
+  --on-secondary-fixed-variant: #4a148c;
+  --on-secondary-container: #f3e5f5;
+
+  /* Tertiary */
+  --tertiary: #00bcd4;
+  --tertiary-dim: #00acc1;
+  --tertiary-container: #006064;
+  --on-tertiary: #000000;
+  --tertiary-fixed: #b2ebf2;
+  --tertiary-fixed-dim: #80deea;
+  --on-tertiary-fixed: #004d40;
+  --on-tertiary-fixed-variant: #004d40;
+  --on-tertiary-container: #e0f7fa;
+
+  /* Surface */
+  --surface: #130b18;
+  --surface-dim: #1a0f21;
+  --surface-bright: #1e1126;
+  --surface-container-lowest: #130b18;
+  --surface-container-low: #19101f;
+  --surface-container: #201526;
+  --surface-container-high: #1e1126;
+  --surface-container-highest: #311b92;
+  --surface-variant: #4a148c;
+  --surface-tint: #7b1fa2;
+
+  /* On Surface */
+  --on-surface: #f4eaff;
+  --on-surface-variant: #d1c4e9;
+
+  /* Background */
+  --background: #0c060d;
+  --on-background: #f4eaff;
+
+  /* Error */
+  --error: #b00020;
+  --error-dim: #cf6679;
+  --error-container: #b00020;
+  --on-error: #ffffff;
+  --on-error-container: #410002;
+
+  /* Outline */
+  --outline: #7b1fa2;
+  --outline-variant: #4a148c;
+
+  /* Inverse */
+  --inverse-surface: #f4eaff;
+  --inverse-on-surface: #130b18;
+  --inverse-primary: #e1bee7;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--background);
+  color: var(--on-background);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-container-low);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dim);
+}
+
+/* Remove scrollbar for no-scrollbar class */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Utility Classes */
+.gradient-primary {
+  background: linear-gradient(to right, var(--primary), var(--primary-dim));
+}
+
+.gradient-mystical {
+  background: linear-gradient(135deg, #7b1fa2, #9c27b0, #00bcd4);
+}
+
+.glass-effect {
+  background: rgba(19, 11, 24, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.surface-low {
+  background-color: var(--surface-container-low);
+}
+
+.surface-container {
+  background-color: var(--surface-container);
+}
+
+.purple-glow {
+  box-shadow: 0 20px 40px rgba(143, 21, 164, 0.12);
+}
+
+.purple-glow-lg {
+  box-shadow: 0 30px 60px rgba(123, 31, 162, 0.2);
+}
+
+/* Typography */
+.display-lg {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.display-md {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.headline-lg {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.headline-md {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.body-lg {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.body-md {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.label-lg {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, var(--primary), var(--primary-dim));
+  color: var(--on-primary);
+  box-shadow: 0 20px 50px rgba(123, 31, 162, 0.4);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 60px rgba(123, 31, 162, 0.5);
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+.btn-secondary {
+  background: rgba(156, 39, 176, 0.2);
+  backdrop-filter: blur(12px);
+  color: var(--primary-dim);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(156, 39, 176, 0.3);
+  transform: scale(1.05);
+}
+
+/* Cards */
+.card {
+  background-color: var(--surface-container-low);
+  border-radius: 24px;
+  padding: 40px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover:hover {
+  background-color: var(--surface-container);
+  transform: translateY(-4px);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
